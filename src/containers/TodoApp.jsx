@@ -1,11 +1,13 @@
-import TodoInput from "../components/TodoInput";
-import Todos from "../components/TodoList";
+import AddTodo from "./AddTodo";
+import VisibileTodoList from "./VisibileTodoList";
+import VisibilityFilters from "./VisibilityFilters";
 
 function TodoApp() {
   return (
     <div className="TodoApp">
-      <TodoInput />
-      <Todos />
+      <AddTodo />
+      <VisibileTodoList />
+      <VisibilityFilters />
     </div>
   );
 }

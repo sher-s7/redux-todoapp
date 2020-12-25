@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addTodo } from "../actions/actions";
+import { connect } from "react-redux";
+import { addTodo } from "../actions/todo";
 
-const TodoInput = () => {
+const AddTodo = ({ dispatch }) => {
   const [todo, setTodo] = useState("");
-  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     setTodo(e.target.value);
@@ -13,12 +12,13 @@ const TodoInput = () => {
     dispatch(addTodo(todo));
     setTodo("");
   };
+
   return (
-    <div>
+    <>
       <input value={todo} onChange={handleChange} type="text" />
-      <button onClick={handleClick}>ADD TODO</button>
-    </div>
+      <button onClick={handleClick}>CREATE</button>
+    </>
   );
 };
 
-export default TodoInput;
+export default connect()(AddTodo);

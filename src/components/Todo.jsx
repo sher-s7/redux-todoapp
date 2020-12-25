@@ -1,23 +1,18 @@
-import PropTypes from "prop-types";
-
-const Todo = ({ onTodoClick, onButtonClick, todo }) => {
+const Todo = (props) => {
   return (
-    <li>
-      <span
-        onClick={onTodoClick}
-        style={{ textDecoration: todo.completed ? "line-through" : "none" }}
+    <>
+      <li
+        style={{
+          cursor: "pointer",
+          textDecoration: props.completed ? "line-through" : "none",
+        }}
+        onClick={props.onClick}
       >
-        {todo.text}
-      </span>
-      <button onClick={() => onButtonClick(todo.id)}>Delete</button>
-    </li>
+        {props.text}
+      </li>
+      <button onClick={props.onDelete}>DELETE</button>
+    </>
   );
-};
-
-Todo.propTypes = {
-  onTodoClick: PropTypes.func.isRequired,
-  onButtonClick: PropTypes.func.isRequired,
-  todo: PropTypes.object.isRequired,
 };
 
 export default Todo;
